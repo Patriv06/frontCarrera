@@ -1,0 +1,87 @@
+<div class="div1">
+  <div class="div2">
+    <app-menu></app-menu>
+
+    <div class="div3">
+      <h1 class="vista">PILOTOS</h1>
+    </div>
+
+    <div class="main">
+      <div class="navegadorPilotos">
+        <button class="pilotoAnterior"><</button>
+        <button class="pilotoSiguiente">></button>
+      </div>
+      <div class="div4">
+        <label>Siguiente Piloto</label>
+        <form>
+          <input class="search"
+            type="text"
+            name="nombre"
+            [(ngModel)]="punto"
+            placeholder="Buscar Piloto"
+            #search (keyup)="searchColumn(search.value)"
+          />
+        </form>
+
+      </div>
+
+      <div class="row">
+        <div class="puntosPiloto">
+          <div class="mostrarDatos">
+            <div class="nombre">{{ punto.nombrePilotoPilCatPunt }}</div>
+            <div class="apellido">{{ punto.nombrePilotoPilCatPunt }}</div>
+          </div>
+
+          <div class="cardsGrid">
+            <div class="card" *ngFor="let dat of puntos">
+              <li class="contentCard">
+                <div class="categ">{{ dat.idCategoriaPilCatPunt }}</div>
+                <div class="puntos">{{ dat.puntosActPilCantPunt }}</div>
+              </li>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="div5">
+        <!-- <div>
+          <form #f="ngForm" (ngSubmit)="elegir(f)">
+            <select class="select" name="miSelect" [(ngModel)]="pilu">
+              <option [ngValue]="pilot" *ngFor="let pilot of piloto">
+                {{ pilot.nombrePiloto }}
+              </option>
+            </select>
+
+            <button class="button">Buscar Piloto</button>
+          </form>
+        </div> -->
+
+        <div class="puntos_seccion">
+          <div class="contenedor_info_posicion">
+            <div class="div_posicion">
+              <h3>POS</h3>
+              <p class="posicion">08</p>
+            </div>
+            <div class="div_posicion_ant">
+              <h3>POS ANT</h3>
+              <p class="posicion-ant">09</p>
+            </div>
+          </div>
+          <div class="contenedor_info_puntos">
+            <div class="div_puntos">
+              <h3>PTS</h3>
+              <p class="puntos" (ngModel)="(pilu)">
+                {{ pilu.puntajeActPiloto }}
+              </p>
+            </div>
+          </div>
+          <div class="div_puntos_ant">
+            <h3>PUNTOS ANT:</h3>
+            <p class="puntos_ant">{{ pilu.puntajeAntPiloto }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--<pagination-controls (pageChange)="page = $event"  previousLabel="<" nextLabel=">"></pagination-controls> -->
+  </div>
+</div>

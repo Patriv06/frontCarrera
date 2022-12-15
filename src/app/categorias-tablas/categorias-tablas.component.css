@@ -1,0 +1,92 @@
+.div1{
+  border: 2px solid #e87867;
+  border-radius: 10px;
+  overflow: hidden;
+  min-height: 94vh;
+  width: 96vw;
+  margin: 1vh 1vw;
+  display: flex;
+  justify-content: center;
+  padding: 1.5vh 1vw;
+  position: relative;
+}
+
+.div2{
+  height: 94vh;
+  width: 96vw;
+  display: flex;
+  vertical-align: middle;
+  border-radius: 10px;
+  position: relative;
+  z-index: 0;
+}
+
+.div3 h1{
+  margin-left: 600px;
+  margin-top: 35px;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+  position: absolute;
+  z-index: 10;
+}
+
+.navegador img {
+  width: 4%;
+}
+
+.navegador {
+  position: fixed;
+  margin-top: 80px;
+  z-index: 10;
+}
+
+.atras {
+  transform: rotate(180deg);
+  margin-left: 50px;
+}
+
+.principal-container .categ-row1 h6 {
+  display: inline;
+  position: relative;
+  top: 5em;
+  left: 6em;
+  padding: 0em 0.6em;
+  text-transform: uppercase;
+  font-size: 2.2em;
+}
+
+.principal-container .categ-row1 h6:hover {
+  font-size: 2.3em;
+  color: #e87867;
+}
+
+.principal-container .categ-row2 h6 {
+  display: inline;
+  position: relative;
+  top: 7em;
+  left: 5.8em;
+  padding: 0em 0.6em;
+  text-transform: uppercase;
+  font-size: 2.2em;
+}
+
+.principal-container .categ-row2 h6:hover {
+  font-size: 2.3em;
+  color: #e87867;
+}
+
+.principal-container .categ-row3 h6 {
+  display: inline;
+  position: relative;
+  top: 9em;
+  left: 9em;
+  padding: 0em 0.6em;
+  text-transform: uppercase;
+  font-size: 2.2em;
+}
+
+.principal-container .categ-row3 h6:hover {
+  font-size: 2.3em;
+  color: #e87867;
+}

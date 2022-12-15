@@ -1,0 +1,58 @@
+.nombre {
+  font-size: 60px;
+  font-weight:200;
+  text-transform: uppercase;
+  margin-left: 130px;
+  line-height: normal;
+}
+
+.apellido{
+  font-size: 80px;
+  font-weight:bold;
+  text-transform: uppercase;
+  margin-left: 150px;
+  line-height: 80px;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 75px);
+  justify-content: center;
+}
+
+.card{
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contentCard{
+  list-style: none;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 200;
+
+}
+
+.categ{
+  color: white;
+  line-height: 40px;
+}
+
+.puntos{
+  color: #e87867;
+}
+
+.mostrarPiloto{
+  /* border: blue solid 3px; */
+  /* width: 600px; */
+  margin-top: 5em;
+  margin-left: 80px;
+}
+
+.mostrarDatos{
+  padding-bottom: 5%;
+}
+
