@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+mostrar=false
   constructor() { }
 
   ngOnInit(): void {
+  }
+  mostrarNoticias(){
+    this.mostrar = true;
+    console.log('esto es mostrar', this.mostrar);
+  }
+
+  cerrar(){
+    this.mostrar = false;
+    console.log('esto es cerrar desde noticias', this.mostrar);
   }
 
 }

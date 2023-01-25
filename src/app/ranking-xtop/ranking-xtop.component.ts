@@ -30,7 +30,7 @@ export class RankingXTopComponent implements OnInit {
   numero2=0;
   posAntPCP=0
   pages: number = 1;
-
+  mostrar=false
   constructor( private pilotServicio: PilotosService,
     private pilCPServicio: PilCatPuntService,
     private categoriaServicio: CategoriasService) { }
@@ -62,7 +62,14 @@ export class RankingXTopComponent implements OnInit {
     console.log(ss)
     this.numero = ss * 18
 
+  }
+  mostrarNoticias(){
+    this.mostrar = true;
+    console.log('esto es mostrar', this.mostrar);
+  }
 
-
+  cerrar(){
+    this.mostrar = false;
+    console.log('esto es cerrar desde noticias', this.mostrar);
   }
 }

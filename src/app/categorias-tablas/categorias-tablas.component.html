@@ -1,7 +1,19 @@
 <div class="div1">
   <div class="div2">
     <app-menu></app-menu>
+    <div *ngIf="mostrar == true">
+      <app-noticias></app-noticias>
+      <div class="equis">
 
+     <button type="button" (click)="cerrar()">X</button>
+      </div>
+    </div>
+
+    <div class="noticia">
+      <div class="semicircle">
+        <img id="icono" (click)="mostrarNoticias()" src="../../assets/Exports/Iconos_Web_Carreras_Comentarios.png" alt="Icono de comentarios">
+      </div>
+    </div>
     <div class="div3">
       <h1 class="vista">CATEGORIAS</h1>
     </div>
@@ -12,29 +24,17 @@
       </a>
     </div>
 
-    <div class="principal-container">
-      <div class="categ-row1">
-        <h6>tc</h6>
-        <h6>2000s</h6>
-        <h6>tn c3</h6>
-        <h6>trv6</h6>
-        <h6>tn c2</h6>
-        <h6>tcp</h6>
-      </div>
-      <div class="categ-row2">
-        <h6>t2000</h6>
-        <h6>tcpk</h6>
-        <h6>tcm</h6>
-        <h6>tcpm</h6>
-        <h6>tp c3</h6>
-        <h6>trs</h6>
-      </div>
-      <div class="categ-row3">
-        <h6>tp c2</h6>
-        <h6>tp c1</h6>
-        <h6>pc a</h6>
-        <h6>pc b</h6>
+
+        <div class="row">
+          <div class="cardsGrid">
+            <div class="card" *ngFor="let dat of categoria">
+              <!-- <li> -->
+                <h6><a class="dato" target="_blank" href="{{dat.linkCategoria}}">{{ dat.idCategoria}}</a></h6>
+              <!-- </li> -->
+            </div>
+          </div>
+        </div>
+
+
       </div>
     </div>
-  </div>
-</div>

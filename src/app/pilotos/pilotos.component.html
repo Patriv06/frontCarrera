@@ -1,7 +1,19 @@
 <div class="div1">
   <div class="div2">
-    <app-menu></app-menu>
+    <!-- <app-menu></app-menu>
+    <div *ngIf="mostrar == true">
+      <app-noticias></app-noticias>
+      <div class="equis">
 
+     <button type="button" (click)="cerrar()">X</button>
+      </div>
+    </div>
+
+    <div class="noticia">
+      <div class="semicircle">
+        <img id="icono" (click)="mostrarNoticias()" src="../../assets/Exports/Iconos_Web_Carreras_Comentarios.png" alt="Icono de comentarios">
+      </div>
+    </div>
     <div class="div3">
       <h1 class="vista">PILOTOS</h1>
     </div>
@@ -10,30 +22,31 @@
       <div class="navegadorPilotos">
         <button class="pilotoAnterior"><</button>
         <button class="pilotoSiguiente">></button>
-      </div>
-      <div class="div4">
-        <label>Siguiente Piloto</label>
-        <form>
-          <input class="search"
-            type="text"
-            name="nombre"
-            [(ngModel)]="punto"
-            placeholder="Buscar Piloto"
-            #search (keyup)="searchColumn(search.value)"
-          />
-        </form>
+      </div> -->
+      <div >
+        <!-- <label>Siguiente Piloto</label> -->
+        <table >
+          <label>Piloto: </label>
+        <td>
+          <select class="browser-default" name="miselect" [(ngModel)]="seleccionado" (change)='changeCentra(seleccionado.nombrePiloto)'>
+
+            <option [ngValue]="pilo" *ngFor="let pilo of piloto">{{pilo.nombrePiloto}}</option>
+          </select>
+
+        </td>
+      </table>
 
       </div>
-
+<!--
       <div class="row">
         <div class="puntosPiloto">
           <div class="mostrarDatos">
-            <div class="nombre">{{ punto.nombrePilotoPilCatPunt }}</div>
-            <div class="apellido">{{ punto.nombrePilotoPilCatPunt }}</div>
+            <div class="nombre">{{ pcp[0].nombrePilotoPilCatPunt }}</div>
+            <div class="apellido">{{ pcp[0].nombrePilotoPilCatPunt }}</div>
           </div>
 
           <div class="cardsGrid">
-            <div class="card" *ngFor="let dat of puntos">
+            <div class="card" *ngFor="let dat of pcp">
               <li class="contentCard">
                 <div class="categ">{{ dat.idCategoriaPilCatPunt }}</div>
                 <div class="puntos">{{ dat.puntosActPilCantPunt }}</div>
@@ -43,7 +56,7 @@
         </div>
       </div>
 
-      <div class="div5">
+      <div class="div5"> -->
         <!-- <div>
           <form #f="ngForm" (ngSubmit)="elegir(f)">
             <select class="select" name="miSelect" [(ngModel)]="pilu">
@@ -56,7 +69,7 @@
           </form>
         </div> -->
 
-        <div class="puntos_seccion">
+      <!--   <div class="puntos_seccion">
           <div class="contenedor_info_posicion">
             <div class="div_posicion">
               <h3>POS</h3>
@@ -84,4 +97,4 @@
     </div>
     <!--<pagination-controls (pageChange)="page = $event"  previousLabel="<" nextLabel=">"></pagination-controls> -->
   </div>
-</div>
+ -->

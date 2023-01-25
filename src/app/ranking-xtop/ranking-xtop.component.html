@@ -1,6 +1,19 @@
 <body>
   <div class="principal-container">
     <app-menu></app-menu>
+    <div *ngIf="mostrar == true">
+      <app-noticias></app-noticias>
+      <div class="equis">
+
+     <button type="button" (click)="cerrar()">X</button>
+      </div>
+    </div>
+
+    <div class="noticia">
+      <div class="semicircle">
+        <img id="icono" (click)="mostrarNoticias()" src="../../assets/Exports/Iconos_Web_Carreras_Comentarios.png" alt="Icono de comentarios">
+      </div>
+    </div>
 
     <p class="home">Ranking por Top XX</p>
     <div class="navegador">

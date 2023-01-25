@@ -32,13 +32,11 @@
 }
 
 .navegador img {
-  width: 4%;
-}
-
-.navegador {
   position: fixed;
   margin-top: 80px;
   z-index: 10;
+  height: 60px;
+  width: 60px;
 }
 
 .atras {
@@ -46,47 +44,111 @@
   margin-left: 50px;
 }
 
-.principal-container .categ-row1 h6 {
-  display: inline;
-  position: relative;
-  top: 5em;
-  left: 6em;
-  padding: 0em 0.6em;
-  text-transform: uppercase;
-  font-size: 2.2em;
+h6 {
+ color: #e87867;
+ font-size: 1.5em;
+ text-align: center;
 }
 
-.principal-container .categ-row1 h6:hover {
-  font-size: 2.3em;
+a {
+  text-decoration: none;
+  color:white;
+}
+
+/* a:hover{
+  font-size: 2em;
   color: #e87867;
+} */
+
+.row{
+  display: flex;
+  margin-top: 7em;
+  margin-left: 12em;
 }
 
-.principal-container .categ-row2 h6 {
-  display: inline;
-  position: relative;
-  top: 7em;
-  left: 5.8em;
-  padding: 0em 0.6em;
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 150px);
+}
+
+.card{
+  height: 100px;
+  width: 100px;
+  flex-direction: column;
   text-transform: uppercase;
-  font-size: 2.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
-.principal-container .categ-row2 h6:hover {
-  font-size: 2.3em;
-  color: #e87867;
+.card:hover{
+  height: 100px;
+  width: 100px;
+  justify-content: center;
+  align-items: center;
+  transform: scale(1);
+  border-radius: 50%;
+  background-color: #e87867;
 }
 
-.principal-container .categ-row3 h6 {
-  display: inline;
-  position: relative;
-  top: 9em;
-  left: 9em;
-  padding: 0em 0.6em;
-  text-transform: uppercase;
-  font-size: 2.2em;
+.card::before{
+  position: absolute;
+	width:100%;
+	height: 100%;
+	text-align:center;
+	background-size: 200% 200%;
+	background-position: 75% 75%;
+	top: 0;
+	left:0;
+	line-height: 80px;
+	transition: background .5s linear;
 }
 
-.principal-container .categ-row3 h6:hover {
-  font-size: 2.3em;
-  color: #e87867;
+
+
+li  {
+  list-style: none;
 }
+.semicircle {
+  width: 50px;
+  height: 100px;
+  border: 3px solid #ffffff;
+  -moz-border-radius: 100px 0 0 100px ;
+  -webkit-border-radius: 100px 0 0 100px;
+  border-radius: 100px 0 0 100px;
+  border-right: none;
+  position:absolute;
+  top: 45vh;
+  right: 15px;
+  background: transparent;
+  z-index: 30;
+}
+.semicircle img {
+  height: 25px;
+  position:inherit;
+  top: 25px;
+  color: white;
+  right: 5px;
+  background-color: transparent;
+}
+.equis {
+  z-index: 60;
+  height: 50px;
+  padding-left: 10px;
+  z-index: 40;
+  cursor: pointer;
+
+}
+button {
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 35px;
+  font-weight: 50;
+  margin-left: 88vw;
+  margin-top: 40vh;
+  position: fixed;
+  z-index: 75;
+  cursor:pointer;
+}
+

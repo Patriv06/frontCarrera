@@ -7,6 +7,7 @@ import { PilCatPunt } from './pilCatPunt/pilCatPunt';
 import { NgForm } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { PilCatPuntService } from '../services/pil-cat-punt.service';
 
 
 
@@ -19,6 +20,7 @@ import { Subject } from 'rxjs';
 export class PilotosComponent implements OnInit {
   Subject: any;
 
+
   // @Input() nombre: string ='';
   // @Output() onEnter   : EventEmitter<string> = new EventEmitter();
 
@@ -28,7 +30,7 @@ export class PilotosComponent implements OnInit {
   }
 
   // public page!: number;
-
+  pcp: PilCatPunt[] = [];
   piloto: Pilotos[] = [];
   pilu = {
     idPiloto:0,
@@ -48,19 +50,17 @@ export class PilotosComponent implements OnInit {
       puntosAntPilCantPunt:0,
       puntosActPilCantPunt:0,
      }
+     seleccionado:Pilotos=new Pilotos()
+ mostrar = false
 
 
-
-
-  constructor(
-    private router:Router,
-    private pilotoService:PilotosService) {}
+  constructor(private pilCPServicio: PilCatPuntService,private pilotoService:PilotosService) {}
 
   ngOnInit(): void {
-    this.Subject.pipe(debounceTime(500))
+    /* this.Subject.pipe(debounceTime(500))
     .subscribe((search: any) => {
       this.searchColumn(search);
-  });
+  }); */
     this.traerPilotos();
   }
 
@@ -81,8 +81,25 @@ export class PilotosComponent implements OnInit {
       }
     )
   }
+  changeCentra(ss: string){
+    console.log(ss)
+    this.traePCPXPilo(ss)
 
+  }
+public traePCPXPilo(pilot: string){
+    this.pilCPServicio.obtenerpilCatPuntPorPil(pilot).subscribe(dato =>{this.pcp = dato});console.log("estoy en traer PCP:",this.pcp)
 
+    //(categoria).subscribe(dato =>{this.pcp = dato});console.log(this.pcp)
+  }
+  mostrarNoticias(){
+    this.mostrar = true;
+    console.log('esto es mostrar', this.mostrar);
+  }
+
+  cerrar(){
+    this.mostrar = false;
+    console.log('esto es cerrar desde noticias', this.mostrar);
+  }
 
   // elegir(f: NgForm){
   //   console.log('este es el f.value', f.value.miSelect.nombrePiloto );
