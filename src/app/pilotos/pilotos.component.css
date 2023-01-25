@@ -1,3 +1,19 @@
+
+
+.principal-container {
+
+  min-height: 97vh;
+  width: 98.3vw;
+  border: 2px solid #e87867;
+  border-radius: 7px;
+  position:absolute;
+  margin: 1vh 1vw;
+  display: flex;
+  padding: 1.5vh 1vw;
+  overflow: hidden;
+}
+
+
 .div1{
   border: 2px solid #e87867;
   border-radius: 10px;overflow: hidden;
@@ -13,7 +29,7 @@
 .div2{
   height: 94vh;
   width: 96vw;
-  display: flex;
+  display:inline-block;
   vertical-align: middle;
   border-radius: 10px;
   position: relative;
@@ -24,8 +40,6 @@
 }
 
 .div3 h1{
-  /* background-color: blueviolet;*/
-  /* border: 3px solid green; */
   margin-left: 600px;
   margin-top: 35px;
   font-size: 20px;
@@ -40,20 +54,31 @@
   color: #e87867;
   font-weight: bold;
   font-size: 18px;
+  text-transform: uppercase;
   margin-top:120px;
-  margin-left: 60em;
+  margin-left: 55%;
   z-index: 1;
-  /* border:rgb(50, 161, 205) 5px solid; */
 }
 
 .search{
   border-radius: 10px;
-  border: #e87867 0.5px solid;
-  background-color: black;
+  border: #e87867 2px solid;
+  background-color: rgb(29, 28, 28);
   color: white;
   height: 10px;
   padding: 10px;
   margin-top: 5px;
+  width: 72%;
+}
+
+.search:focus{
+  border:#e87867 2px solid;
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .navegadorPilotos img {
@@ -61,26 +86,30 @@
 }
 
 .navegadorPilotos {
-  position: fixed;
-  margin-top: 110px;
-  margin-left: 60em;
+  position: absolute;
+  margin-top: 8%;
+  margin-left: 45%;
 }
 
 .pilotoAnterior {
+  margin-top: 1vh;
+  margin-left: 1vw;
   font-size: 3em;
   font-weight: bold;
   color: #e87867;
   background-color: transparent;
-  border: none;
-
+  border: solid 2x red;
+  cursor: pointer;
 }
 
 .pilotoSiguiente {
+  margin-top: 1vh;
+  margin-left: 4vw;
   font-size: 3em;
   font-weight: bold;
   color: #e87867;
   background-color: transparent;
-  border: none;
+  cursor:pointer;
 }
 
 .atras {
@@ -98,16 +127,237 @@
 }
 
 .puntos_seccion{
-  /* border: solid 3px goldenrod; */
-  float: left;
+  position: absolute;
   height: fit-content;
   margin-top: 3em;
-
+  margin-left: -14%;
   z-index: 2;
 }
 
 .contenedor_info_posicion{
-  /* border: 4px cyan solid; */
+  display: flex;
+  height: 3em;
+}
+
+.div_posicion{
+  float: left;
+}
+
+.div_posicion p{
+  font-size: 5em;
+  line-height: 1.2em;
+  margin-top: 0;
+  color: #e87867;
+  font-weight: bold;
+}
+
+.div_posicion h3{
+  line-height: 3px;
+  font-size: 1em;
+  color: white;
+  margin-bottom: 0;
+}
+
+.div_posicion_ant{
+  margin-top: 30px;
+  margin-left: 15px;
+}
+
+.div_posicion_ant .posicion-ant {
+  margin-top: 5px;
+  font-size: 45px;
+  font-weight: bold;
+}
+
+.div_posicion_ant h3{
+  line-height: 3px;
+  font-size: 1em;
+  color: white;
+  margin-bottom: 0;
+}
+
+.div_posicion_ant p{
+  font-size: 1.5em;
+  line-height: 1.2em;
+  margin-top: 0;
+  color: #e87867;
+}
+
+.div_puntos{
+  margin-top: 4em;
+
+  line-height: 20px;
+}
+
+.div_puntos .puntos{
+  margin: 0;
+  padding: 0;
+  font-size: 3em;
+}
+
+.div_puntos_ant h3 {
+  float: left;
+}
+
+.div_puntos_ant h3{
+  margin-top: 50px;
+}
+
+.div_puntos_ant .puntos_ant {
+  float: left;
+  color:#e87867;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 2.8em;
+  margin-left: 1em;
+}
+
+.main{
+  width: 96vw;
+  display: flex;
+}
+
+.div5{
+
+  margin-left: 800px;
+  width: 10%;
+  flex: 10%;
+}
+
+.puntosPiloto{
+  margin-top: 10%;
+  margin-left: 13%;
+}
+
+.select{
+  margin-right: 4%;
+}
+
+/* CSS de la tabla de puntos y categorias */
+
+.row{
+  flex: 100%;
+}
+
+.nombre {
+  font-size: 60px;
+  font-weight:200;
+  text-transform: uppercase;
+  margin-top: 2.6em;
+  margin-left: 130px;
+  line-height: normal;
+}
+
+.apellido{
+  font-size: 80px;
+  font-weight:bold;
+  text-transform: uppercase;
+  margin-left: 150px;
+  line-height: 80px;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 75px);
+  justify-content: left;
+  margin-left: 150px;
+}
+
+.card{
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+  margin-left: 5px;
+}
+
+.contentCard{
+  list-style: none;
+  text-align: left;
+  font-size: 18px;
+  font-weight: 200;
+  margin-left: 5px;
+
+}
+
+.categ{
+  color: white;
+  line-height: 40px;
+}
+
+.puntos{
+  color: #e87867;
+}
+
+.mostrarPiloto{
+  margin-top: 5em;
+  margin-left: 80px;
+}
+
+.mostrarDatos{
+  padding-bottom: 5%;
+}
+
+.semicircle {
+  width: 50px;
+  height: 100px;
+  border: 3px solid #ffffff;
+  -moz-border-radius: 100px 0 0 100px ;
+  -webkit-border-radius: 100px 0 0 100px;
+  border-radius: 100px 0 0 100px;
+  border-right: none;
+  position: absolute;
+  top: 40vh;
+  right: 15px;
+  background: transparent;
+  z-index: 30;
+}
+
+#icono{
+  height: 50px;
+  padding-left: 10px;
+  z-index: 40;
+  cursor: pointer;
+}
+
+.semicircle img {
+  height: 28px;
+  position: relative;
+  top: 25px;
+  color: white;
+  right: 5px;
+  background-color: transparent;
+}
+
+.equis {
+  z-index: 60;
+  height: 50px;
+  padding-left: 10px;
+  z-index: 40;
+  cursor: pointer;
+}
+
+button {
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 35px;
+  font-weight: 50;
+  margin-left: 88vw;
+  margin-top: 40vh;
+  position: fixed;
+  z-index: 75;
+  cursor:pointer;
+}
+.puntos_seccion{
+  position: absolute;
+  height: fit-content;
+  margin-top: -9em;
+  margin-left: -34%;
+  z-index: 2;
+}
+
+.contenedor_info_posicion{
   display: flex;
   height: 3em;
 }
@@ -190,84 +440,17 @@
 }
 
 .div5{
-  margin-top: 17%;
+  margin-top: -15vh;
   width: 40%;
   flex: 40%;
-  /* border: solid 3px yellow; */
 }
 
 .puntosPiloto{
-  margin-top: 10%;
+  margin-top: -15vh;
   margin-left: 13%;
-  /* border: solid 2px blueviolet; */
 }
 
 .select{
   margin-right: 4%;
 }
 
-/* CSS de la tabla de puntos y categorias */
-
-.row{
-  flex: 100%;
-  /* border: solid 2px rgb(205, 50, 179); */
-}
-
-
-.nombre {
-  font-size: 60px;
-  font-weight:200;
-  text-transform: uppercase;
-  margin-left: 130px;
-  line-height: normal;
-}
-
-.apellido{
-  font-size: 80px;
-  font-weight:bold;
-  text-transform: uppercase;
-  margin-left: 150px;
-  line-height: 80px;
-}
-
-.cardsGrid {
-  display: grid;
-  grid-template-columns: repeat(5, 75px);
-  justify-content: center;
-}
-
-.card{
-  height: 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.contentCard{
-  list-style: none;
-  text-align: center;
-  font-size: 18px;
-  font-weight: 200;
-
-}
-
-.categ{
-  color: white;
-  line-height: 40px;
-}
-
-.puntos{
-  color: #e87867;
-}
-
-.mostrarPiloto{
-  /* border: blue solid 3px; */
-  /* width: 600px; */
-  margin-top: 5em;
-  margin-left: 80px;
-}
-
-.mostrarDatos{
-  padding-bottom: 5%;
-}

@@ -203,28 +203,37 @@ footer {
   -webkit-border-radius: 100px 0 0 100px;
   border-radius: 100px 0 0 100px;
   border-right: none;
-  position:absolute;
-  top: 45vh;
+  position: absolute;
+  top: 40vh;
   right: 15px;
   background: transparent;
   z-index: 30;
 }
+
+#icono{
+  height: 50px;
+  padding-left: 10px;
+  z-index: 40;
+  cursor: pointer;
+}
+
 .semicircle img {
-  height: 25px;
-  position:inherit;
+  height: 28px;
+  position: relative;
   top: 25px;
   color: white;
   right: 5px;
   background-color: transparent;
 }
+
 .equis {
   z-index: 60;
   height: 50px;
   padding-left: 10px;
   z-index: 40;
   cursor: pointer;
-
 }
+
 button {
   background-color: transparent;
   color: #ffffff;

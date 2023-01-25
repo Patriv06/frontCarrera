@@ -1,63 +1,154 @@
 <div class="div1">
-  <div class="div2">
-    <!-- <app-menu></app-menu>
-    <div *ngIf="mostrar == true">
-      <app-noticias></app-noticias>
-      <div class="equis">
-
-     <button type="button" (click)="cerrar()">X</button>
+    <div class="div2">
+      <app-menu></app-menu>
+      <div *ngIf="mostrar == true">
+        <app-noticias></app-noticias>
+        <div class="equis">
+          <button type="button" (click)="cerrar()">X</button>
+        </div>
       </div>
-    </div>
 
-    <div class="noticia">
-      <div class="semicircle">
-        <img id="icono" (click)="mostrarNoticias()" src="../../assets/Exports/Iconos_Web_Carreras_Comentarios.png" alt="Icono de comentarios">
+      <div class="noticia">
+        <div class="semicircle">
+          <img id="icono" (click)="mostrarNoticias()" src="../../assets/Exports/Iconos_Web_Carreras_Comentarios.png" alt="Icono de comentarios">
+        </div>
       </div>
-    </div>
-    <div class="div3">
-      <h1 class="vista">PILOTOS</h1>
-    </div>
 
-    <div class="main">
+      <div class="div3">
+        <h1 class="vista">PILOTOS</h1>
+      </div>
+
       <div class="navegadorPilotos">
-        <button class="pilotoAnterior"><</button>
-        <button class="pilotoSiguiente">></button>
-      </div> -->
-      <div >
-        <!-- <label>Siguiente Piloto</label> -->
-        <table >
-          <label>Piloto: </label>
-        <td>
-          <select class="browser-default" name="miselect" [(ngModel)]="seleccionado" (change)='changeCentra(seleccionado.nombrePiloto)'>
 
-            <option [ngValue]="pilo" *ngFor="let pilo of piloto">{{pilo.nombrePiloto}}</option>
-          </select>
-
-        </td>
-      </table>
 
       </div>
-<!--
+      <div class="div4">
+
+
+        <table>
+    <td>
+        <label>Piloto: </label>
+
+        <select class="browser-default" name="miselect" [(ngModel)]="seleccionado" (change)='changeCentra(seleccionado.nombrePiloto)'>
+
+          <option [ngValue]="pilo" *ngFor="let pilo of piloto">{{pilo.nombrePiloto}}</option>
+        </select>
+
+     </td>
+     </table>
+     </div>
+
+
+    <div *ngIf="muestra == true">
       <div class="row">
         <div class="puntosPiloto">
           <div class="mostrarDatos">
-            <div class="nombre">{{ pcp[0].nombrePilotoPilCatPunt }}</div>
-            <div class="apellido">{{ pcp[0].nombrePilotoPilCatPunt }}</div>
+            <div class="nombre">{{ nombre }}</div>
+            <div class="apellido">{{ apellido }}</div>
           </div>
 
           <div class="cardsGrid">
             <div class="card" *ngFor="let dat of pcp">
-              <li class="contentCard">
+
+                <ng-container
+                *ngIf="dat.idCategoriaPilCatPunt !== 'Puntaje' && dat.idCategoriaPilCatPunt !== 'Total';else  noEsPuntaje">
+                 <li class="contentCard">
                 <div class="categ">{{ dat.idCategoriaPilCatPunt }}</div>
                 <div class="puntos">{{ dat.puntosActPilCantPunt }}</div>
-              </li>
+                </li>
+                </ng-container>
+
+                <ng-template #noEsPuntaje>
+                  <ng-container
+                    *ngIf="dat.idCategoriaPilCatPunt == 'Total'" >
+                    <div class="div5">
+                      <div class="puntos_seccion">
+                        <div class="contenedor_info_posicion">
+                          <div class="div_posicion">
+                            <h3>POS</h3>
+                            <p class="posicion">{{dat.posActPCP}}</p>
+                          </div>
+                          <div class="div_posicion_ant">
+                            <h3>POS ANT</h3>
+                            <p class="posicion-ant">{{dat.posAntPCP}}</p>
+                          </div>
+                        </div>
+                        <div class="contenedor_info_puntos">
+                          <div class="div_puntos">
+                            <h3>PTS</h3>
+                            <p class="puntos">
+                              {{ dat.puntosActPilCantPunt }}
+                            </p>
+                          </div>
+                        </div>
+                        <div class="div_puntos_ant">
+                          <h3>PUNTOS ANT:</h3>
+                          <p class="puntos_ant">{{ dat.puntosAntPilCantPunt }}</p>
+                        </div>
+                      </div>
+                    </div>
+                    </ng-container>
+                  </ng-template>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+                <ng-template #noEsPuntaje>
+                  <!-- <ng-container
+                    *ngIf="dat.idCategoriaPilCatPunt == 'Total'" > -->
+                    <div class="div5">
+                      <div class="puntos_seccion">
+                        <div class="contenedor_info_posicion">
+                          <div class="div_posicion">
+                            <h3>POS</h3>
+                            <p class="posicion">08</p>
+                          </div>
+                          <div class="div_posicion_ant">
+                            <h3>POS ANT</h3>
+                            <p class="posicion-ant">09</p>
+                          </div>
+                        </div>
+                        <div class="contenedor_info_puntos">
+                          <div class="div_puntos">
+                            <h3>PTS</h3>
+                            <p class="puntos" (ngModel)="(pilu)">
+                              {{ pilu.puntajeActPiloto }}
+                            </p>
+                          </div>
+                        </div>
+                        <div class="div_puntos_ant">
+                          <h3>PUNTOS ANT:</h3>
+                          <p class="puntos_ant">{{ pilu.puntajeAntPiloto }}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </ng-template>
+                  </div>
+                  <!--<pagination-controls (pageChange)="page = $event"  previousLabel="<" nextLabel=">"></pagination-controls> -->
+                </div>
+              </div>
 
-      <div class="div5"> -->
-        <!-- <div>
+
+        <!-- </ng-container> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--<pagination-controls (pageChange)="page = $event"  previousLabel="<" nextLabel=">"></pagination-controls> -->
+
+
+<!--  <div class="div5">
+         <div>
           <form #f="ngForm" (ngSubmit)="elegir(f)">
             <select class="select" name="miSelect" [(ngModel)]="pilu">
               <option [ngValue]="pilot" *ngFor="let pilot of piloto">
@@ -69,32 +160,5 @@
           </form>
         </div> -->
 
-      <!--   <div class="puntos_seccion">
-          <div class="contenedor_info_posicion">
-            <div class="div_posicion">
-              <h3>POS</h3>
-              <p class="posicion">08</p>
-            </div>
-            <div class="div_posicion_ant">
-              <h3>POS ANT</h3>
-              <p class="posicion-ant">09</p>
-            </div>
-          </div>
-          <div class="contenedor_info_puntos">
-            <div class="div_puntos">
-              <h3>PTS</h3>
-              <p class="puntos" (ngModel)="(pilu)">
-                {{ pilu.puntajeActPiloto }}
-              </p>
-            </div>
-          </div>
-          <div class="div_puntos_ant">
-            <h3>PUNTOS ANT:</h3>
-            <p class="puntos_ant">{{ pilu.puntajeAntPiloto }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--<pagination-controls (pageChange)="page = $event"  previousLabel="<" nextLabel=">"></pagination-controls> -->
-  </div>
- -->
+
+          <!-- <label>Siguiente Piloto</label> -->

@@ -6,7 +6,7 @@ import { PilotosService } from './pilotos.service';
 import { PilCatPunt } from './pilCatPunt/pilCatPunt';
 import { NgForm } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { Subject, firstValueFrom } from 'rxjs';
 import { PilCatPuntService } from '../services/pil-cat-punt.service';
 
 
@@ -51,8 +51,10 @@ export class PilotosComponent implements OnInit {
       puntosActPilCantPunt:0,
      }
      seleccionado:Pilotos=new Pilotos()
- mostrar = false
-
+     mostrar = false
+     muestra = false
+     nombre = " "
+     apellido = " "
 
   constructor(private pilCPServicio: PilCatPuntService,private pilotoService:PilotosService) {}
 
@@ -81,16 +83,25 @@ export class PilotosComponent implements OnInit {
       }
     )
   }
-  changeCentra(ss: string){
+  async changeCentra(ss: string){
     console.log(ss)
-    this.traePCPXPilo(ss)
+    await this.traePCPXPilo(ss)
+    this.muestra = true
+    const splitString = ss.split(",");
+    this.nombre = splitString[0]
+    this.apellido = splitString[1]
 
   }
-public traePCPXPilo(pilot: string){
-    this.pilCPServicio.obtenerpilCatPuntPorPil(pilot).subscribe(dato =>{this.pcp = dato});console.log("estoy en traer PCP:",this.pcp)
+public async traePCPXPilo(pilot: string){
+  console.log("pilot: ", pilot)
+  const dato = await firstValueFrom(this.pilCPServicio.obtenerpilCatPuntPorPil(pilot))
+    this.pcp = dato
 
-    //(categoria).subscribe(dato =>{this.pcp = dato});console.log(this.pcp)
+   console.log(this.pcp)
   }
+
+
+
   mostrarNoticias(){
     this.mostrar = true;
     console.log('esto es mostrar', this.mostrar);
