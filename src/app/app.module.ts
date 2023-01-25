@@ -21,19 +21,26 @@ import { CategoriasComponent } from './helpers/categorias/categorias.component';
 import { PilCatPuntComponent } from './pilotos/pilCatPunt/pilCatPunt.component';
 import { FormsModule } from '@angular/forms';
 import { RankingComponent } from './ranking/ranking.component';
+import { Ranking1Component } from './ranking1/ranking1.component';
+import { RankingXCatComponent } from './ranking-xcat/ranking-xcat.component';
+import { RankingXTopComponent } from './ranking-xtop/ranking-xtop.component';
 
 
-const router: Routes = [
+const routes: Routes = [
   {path:'home', component:HomeComponent},
-  {path:'ranking', component:RankingComponent},
-  {path:'ranking-tabla', component:RankingTablaComponent},
+  {path:'ranking', component:RankingSponsorsComponent},
+  {path:'ranking1', component:Ranking1Component},
+  {path:'rankingxcat', component:RankingXCatComponent},
+  {path:'rankingxtop', component:RankingXTopComponent},
   {path:'pilotos', component:PilotosComponent},
+  {path:'menu', component:MenuComponent},
   {path:'categorias', component:CategoriasSponsorsComponent},
   {path:'categorias-tabla', component:CategoriasTablasComponent},
   {path:'noticias', component:NoticiasComponent},
-  {path:'menu', component:MenuComponent},
-  {path: 'pilCatPunt', component:PilCatPuntComponent},
-  {path:'', redirectTo:'home', pathMatch:'full'}
+  {path: 'pilcatpunt', component:PilCatPuntComponent},
+  {path:'', redirectTo:'home', pathMatch:'full'},
+ // {path:'#1', redirectTo:'pilotos', component:PilotosComponent},
+
 ];
 
 
@@ -50,13 +57,16 @@ const router: Routes = [
     CategoriasSponsorsComponent,
     CategoriasComponent,
     PilCatPuntComponent,
-    RankingComponent
+    RankingComponent,
+    Ranking1Component,
+    RankingXCatComponent,
+    RankingXTopComponent
     ],
   imports: [
     BrowserModule,
     MatSliderModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(router),
+    RouterModule.forRoot(routes),
     HttpClientModule,
     FormsModule,
     NgxPaginationModule

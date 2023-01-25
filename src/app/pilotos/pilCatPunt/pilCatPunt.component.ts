@@ -21,11 +21,13 @@ export class PilCatPuntComponent implements OnInit {
   nombre: string = '';
   puntos: PilCatPunt[] = [
     {
-     idPilCatPunt:0,
-     nombrePilotoPilCatPunt:'',
-     idCategoriaPilCatPunt:'',
-     puntosAntPilCantPunt:0,
-     puntosActPilCantPunt:0,
+      idPilCatPunt:0,
+      posActPCP:0,
+      posAntPCP:0,
+      nombrePilotoPilCatPunt:'',
+        idCategoriaPilCatPunt:'',
+        puntosAntPilCantPunt:0,
+        puntosActPilCantPunt:0,
     }
   ]
 

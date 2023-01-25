@@ -14,6 +14,11 @@ export class PilCatPuntService {
   private altaURL="https://complete-audry-privas06.koyeb.app/pilCatPunt";
   private buscaPilUrl = "https://complete-audry-privas06.koyeb.app/ver/pilCatPuntXPiloto/";
   private buscaPilYCatURL = "https://complete-audry-privas06.koyeb.app/ver/pilCatPuntXPilotoYXCategoria";
+  private buscaPCPXPuntAct = "https://complete-audry-privas06.koyeb.app/ver/pcpOrdenadoXPuntAct";
+  private buscaPCPXPuntAnt = "https://complete-audry-privas06.koyeb.app/ver/pcpOrdenadoXPuntAnt";
+  private buscaPCPXPosAnt = "https://complete-audry-privas06.koyeb.app/ver/pcpOrdenadoXPosAnt";
+  private buscaPCPXPosAct = "https://complete-audry-privas06.koyeb.app/ver/pcpOrdenadoXPosAct";
+  private buscaPCPXCat = "https://complete-audry-privas06.koyeb.app/ver/pcpOrdenadoXCat/";
 
 /*   private baseURL="http://localhost:8080/ver/pilCatPunt";
   private modifURL ="http://localhost:8080/modif/pilCatPunt";
@@ -37,19 +42,40 @@ export class PilCatPuntService {
 
   }
 
+  obtenerpilCatPuntPorCat(nombreCat:String):Observable<PilCatPunt[]>{
+    return this.httpClient.get<PilCatPunt[]>(`${this.buscaPCPXCat}`+nombreCat);
+
+  }
+
   obtenerPilCatPunt():Observable<PilCatPunt[]>{
     return this.httpClient.get<PilCatPunt[]>(`${this.baseURL}`);
   }
 
-  modificarPilCatPunt(PilCatPunt:PilCatPunt){
-   return this.httpClient.put<PilCatPunt>(`${this.modifURL}`, PilCatPunt)
+  obtenerPCPXPuntact():Observable<PilCatPunt[]>{
+    return this.httpClient.get<PilCatPunt[]>(`${this.buscaPCPXPuntAct}`);
   }
 
-  borrarPilCatPunt(PilCatPunt:PilCatPunt){
-   return this.httpClient.delete<PilCatPunt>(this.delURL+ PilCatPunt.idPilCatPunt)
+  obtenerPCPXPuntant():Observable<PilCatPunt[]>{
+    return this.httpClient.get<PilCatPunt[]>(`${this.buscaPCPXPuntAnt}`);
   }
-  crearPilCatPunt(PilCatPunt:PilCatPunt){
-    return this.httpClient.post<PilCatPunt>(`${this.altaURL}`, PilCatPunt)
+
+  obtenerPCPXPosant():Observable<PilCatPunt[]>{
+    return this.httpClient.get<PilCatPunt[]>(`${this.buscaPCPXPosAnt}`);
+  }
+
+  obtenerPCPXPosact():Observable<PilCatPunt[]>{
+    return this.httpClient.get<PilCatPunt[]>(`${this.buscaPCPXPosAct}`);
+  }
+
+  modificarPilCatPunt(pilCatPunt:PilCatPunt){
+   return this.httpClient.put<PilCatPunt>(`${this.modifURL}`, pilCatPunt)
+  }
+
+  borrarPilCatPunt(pilCatPunt:PilCatPunt){
+   return this.httpClient.delete<PilCatPunt>(this.delURL+ pilCatPunt.idPilCatPunt)
+  }
+  crearPilCatPunt(pilCatPunt:PilCatPunt){
+    return this.httpClient.post<PilCatPunt>(`${this.altaURL}`, pilCatPunt)
   }
 }
 

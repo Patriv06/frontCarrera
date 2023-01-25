@@ -1,0 +1,322 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #0b0a0a;
+  font-size: 18px;
+  font-family: 'Quantico', sans-serif;
+}
+
+.principal-container {
+
+  min-height: 97vh;
+  width: 98.3vw;
+  border: 2px solid #e87867;
+  border-radius: 7px;
+  position:absolute;
+  margin: 1vh 1vw;
+  display: flex;
+  padding: 1.5vh 1vw;
+  overflow: hidden;
+}
+.navegador img {
+  width: 4%;
+}
+.atras {
+  transform: rotate(180deg);
+  /* margin-left: 150px; */
+}
+select, #fe {
+  font-size: 12
+  px;
+  border: #e87867 solid 3px;
+  border-radius: 5px;
+  color:#ffffff
+}
+
+
+.principal-container h4 {
+  position: absolute;
+  color: white;
+  font-size: 28px;
+  z-index: 20;
+  top: 80px;
+  transform: rotate(180deg);
+  left: 160px;
+  background-color: transparent;
+}
+
+.principal-container h3 {
+  position: absolute;
+  color: white;
+  top: 84px;
+  left: 90px;
+}
+
+.principal-container .home {
+  color: #ffffff;
+  position: absolute;
+  z-index: 30;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-family: 'Quantico', sans-serif;
+  right: 50%;
+  top: 20px;
+  background-color: transparent;
+  margin-top: 30px;
+}
+
+
+#list {
+  font-family: 'Quantico', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+#list li {
+  display: inline;
+  padding: 3px 30px;
+  border: 1px solid #e87867;
+  border-radius: 15px;
+  font-size: 12px;
+  margin: 0px 8px;
+}
+
+/* #fondo {
+  background-color: #e87867;
+}
+ #list li:hover {
+  background-color: #e87867;
+}
+a:hover {
+  background-color: #e87867;
+} */
+.table {
+  position: absolute;
+  color: white;
+  top: 180px;
+  left: 180px;
+}
+
+.table th {
+  margin: 0 3px;
+  border: 1px solid none;
+  font-family: 'Quantico',  sans-serif;
+  text-transform: uppercase;
+  font-size: 18px;
+  padding: 0 5px;
+}
+
+.table td {
+  text-align: center;
+  padding: 4px 5px;
+  font-family: 'Quantico', sans-serif;
+  font-size: 14px;
+}
+
+.table th {
+  text-align: center;
+  padding: 4px 5px;
+  font-family: 'Quantico', sans-serif;
+  font-size: 14px;
+  column-width:100%
+}
+.position {
+  text-align: center;
+}
+
+.name {
+  text-align: center;
+}
+
+
+footer {
+  position: absolute;
+  color: white;
+  bottom: 30px;
+  left: 450px;
+  text-align: center;
+}
+
+#list2 {
+  font-family: 'Quantico', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+#list2 li {
+  display: inline;
+  margin: 0 10px;
+}
+
+#list2 li:hover {
+  color: #e87867;
+}
+
+.arrow {
+  font-size: 20px;
+}
+.rojo{
+  color:#e87867
+}
+
+.my-pagination ::ng-deep .ngx-pagination .current {
+  background:#e87867;
+  font-size: 14px;
+
+}
+.contenedor .text{
+	word-wrap: normal
+
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #0b0a0a;
+  font-size: 18px;
+  font-family: 'Quantico', sans-serif;
+}
+
+.principal-container {
+
+  min-height: 97vh;
+  width: 98.3vw;
+  border: 2px solid #e87867;
+  border-radius: 7px;
+  position:absolute;
+  margin: 1vh 1vw;
+  display: flex;
+  padding: 1.5vh 1vw;
+  overflow: hidden;
+}
+
+.principal-container h4 {
+  position: absolute;
+  color: white;
+  font-size: 28px;
+  z-index: 20;
+  top: 80px;
+  transform: rotate(180deg);
+  left: 160px;
+  background-color: transparent;
+}
+
+.principal-container h3 {
+  position: absolute;
+  color: white;
+  top: 84px;
+  left: 90px;
+}
+
+.principal-container .home {
+  color: #ffffff;
+  position: absolute;
+  z-index: 30;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-family: 'Quantico', sans-serif;
+  right: 50%;
+  top: 20px;
+  background-color: transparent;
+  margin-top: 30px;
+}
+
+.filters {
+  position: absolute;
+  color: white;
+  top: 150px;
+  left: 180px;
+  font-size: 14px;
+  text-align: center;
+}
+a {
+  font-family: 'Quantico', sans-serif;
+  font-weight: bold;
+  color:#ffffff;
+  padding: 3px 30px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 12px;
+  margin: 0px 8px;
+  background-color:transparent;
+}
+
+#list {
+  font-family: 'Quantico', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+#list li {
+  display: inline;
+  padding: 3px 30px;
+  border: 1px solid #e87867;
+  border-radius: 15px;
+  font-size: 12px;
+  margin: 0px 8px;
+}
+
+#fondo {
+  background-color: #e87867;
+}
+ #list li:hover {
+  background-color: #e87867;
+}
+
+.table {
+  position: absolute;
+  color: white;
+  top: 180px;
+  left: 180px;
+}
+
+.table th {
+  margin: 0 3px;
+  border: 1px solid none;
+  font-family: 'Quantico',  sans-serif;
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 0 5px;
+}
+
+.table td {
+  text-align: center;
+  padding: 4px 5px;
+  font-family: 'Quantico', sans-serif;
+  font-size: 12px;
+}
+
+.position {
+  text-align: center;
+}
+
+.name {
+  text-align: center;
+}
+
+
+footer {
+  position: absolute;
+  color: white;
+  bottom: 30px;
+  left: 450px;
+  text-align: center;
+}
+
+
+.arrow {
+  font-size: 20px;
+}
+.rojo{
+  color:#e87867
+}
+
+.my-pagination ::ng-deep .ngx-pagination .current {
+  background:#e87867;
+  font-size: 14px;
+
+}

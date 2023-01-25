@@ -1,0 +1,90 @@
+
+<body>
+  <div class="principal-container">
+
+
+          <app-menu></app-menu>
+
+          <p class="home">Ranking</p>
+
+      <section class="filters">
+
+          <ul id="list" >
+
+                <li>filtros</li>
+                <li><a href="rankingxtop">top xx</a></li>
+                <li><a href="rankingxcat">categorias</a></li>
+
+          </ul>
+      </section>
+      <section class="table">
+          <table>
+
+            <td>POS ACT&nbsp;</td>
+          <td>PILOTO&nbsp;</td>
+          <td>TOTAL&nbsp;</td>
+          <ng-container *ngFor="let cat of categ ">
+            <td>{{ cat.idCategoria }}</td>
+          </ng-container>
+
+          <td>POS ANT &nbsp;</td>
+          <td>PTS ANT</td>
+
+          <ng-container *ngFor="let pil of pilotoCatPun | paginate: { itemsPerPage: 180, currentPage: pages }">
+
+            <ng-container
+              *ngIf="pil.idCategoriaPilCatPunt == 'Puntaje'; else noEsPuntaje"
+            >
+              <tr></tr>
+
+              <td>&nbsp; &nbsp; &nbsp;{{ pil.posActPCP }}</td>
+              <td>{{ pil.nombrePilotoPilCatPunt }}</td>
+              <td class="rojo">{{ pil.puntosActPilCantPunt }}</td>
+            </ng-container>
+            <ng-template #noEsPuntaje>
+              <ng-container
+                *ngIf="pil.idCategoriaPilCatPunt == 'Total'; else noEsTotal"
+              >
+                <td class="rojo">&nbsp; &nbsp; &nbsp;{{ pil.posAntPCP }}</td>
+                <td class="rojo">
+                  &nbsp; &nbsp;{{ pil.puntosAntPilCantPunt }}
+                </td>
+              </ng-container>
+            </ng-template>
+            <ng-template #noEsTotal>
+              <ng-container *ngIf="pil.puntosActPilCantPunt !== 0; else noEsZero">
+                <div class="rojo">
+              <td>{{ pil.puntosActPilCantPunt }}</td></div>
+            </ng-container>
+
+           <ng-template #noEsZero>
+            <td>{{ pil.puntosActPilCantPunt }}</td>
+           </ng-template>
+
+            </ng-template>
+          </ng-container>
+</table>
+
+</section>
+<footer>
+<div class="div10" >
+  <pagination-controls  class="my-pagination" (pageChange)="pages = $event" screenReaderPageLabel="page" previousLabel="ANTERIORES"
+  nextLabel="PRÓXIMOS"  ></pagination-controls>
+</div>
+</footer>
+</div>
+
+
+<!-- <pagination-controls  id="some_id">
+(pageBoundsCorrection)="pageChanged($event)"
+maxSize="9"
+directionLinks="true"
+autoHide="true"
+responsive="true"
+previousLabel="anterior"
+nextLabel="Siguiente"
+screenReaderPaginationLabel="Pagination"
+screenReaderPageLabel="page"
+screenReaderCurrentLabel="You're on page">
+</pagination-controls> -->
+</body>

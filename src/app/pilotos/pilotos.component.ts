@@ -40,12 +40,17 @@ export class PilotosComponent implements OnInit {
  }
   puntos: PilCatPunt[] = [];
   punto = {
-      idPilCatPunt:0,
-      nombrePilotoPilCatPunt:'',
+    idPilCatPunt:0,
+    posActPCP:0,
+    posAntPCP:0,
+    nombrePilotoPilCatPunt:'',
       idCategoriaPilCatPunt:'',
       puntosAntPilCantPunt:0,
       puntosActPilCantPunt:0,
      }
+
+
+
 
   constructor(
     private router:Router,

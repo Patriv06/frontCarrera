@@ -1,8 +1,9 @@
 export class PilCatPunt {
-  public idPilCatPunt!:number;
-  public nombrePilotoPilCatPunt!:string;
-  public idCategoriaPilCatPunt!:string;
-  public puntosAntPilCantPunt!:number;
-  public puntosActPilCantPunt!:number;
-
+  idPilCatPunt!:number;
+    posActPCP!:number;
+    posAntPCP!:number;
+    nombrePilotoPilCatPunt!:string;
+    idCategoriaPilCatPunt!:string;
+    puntosAntPilCantPunt!:number;
+    puntosActPilCantPunt!:number;
 }

@@ -1,0 +1,101 @@
+<body>
+  <div class="principal-container">
+    <app-menu></app-menu>
+
+    <p class="home">Ranking por Top XX</p>
+    <div class="navegador">
+      <a routerLink="/ranking1">
+        <img
+          class="atras"
+          src="../../assets/Exports/Iconos_Web_Carreras_Flecha_1.png"
+        />
+      </a>
+    </div>
+    <section class="table">
+      <table>
+
+      <td>
+        <label>Top&nbsp;XX:&nbsp; </label>
+      </td>
+
+      <td>
+        <select
+          class="browser-default"
+          name="miselect"
+          [(ngModel)]="seleccionado"
+          (change)="changeCentra(seleccionado.num)"
+        >
+          <label>Select the role</label>
+          <option [ngValue]="op" *ngFor="let op of Opciones">
+            {{ op.name }}
+          </option>
+        </select>
+      </td>
+
+<tr></tr>
+
+            <td>POS&nbsp;ACT&nbsp;</td>
+            <td>PILOTO&nbsp;</td>
+            <td>TOTAL&nbsp;</td>
+            <ng-container *ngFor="let cat of categ">
+              <td>{{ cat.idCategoria }}</td>
+            </ng-container>
+
+            <td>POS&nbsp;ANT &nbsp;</td>
+            <td>PTS&nbsp;ANT</td>
+
+            <ng-container
+              *ngFor="
+                let pil of pilotoCatPun
+                  | paginate : { itemsPerPage:numero, currentPage: pages }
+              "
+            >
+              <ng-container
+                *ngIf="pil.idCategoriaPilCatPunt == 'Puntaje'; else noEsPuntaje"
+              >
+                <tr></tr>
+
+                <td>&nbsp; &nbsp; &nbsp;{{ pil.posActPCP }}</td>
+                <td>{{ pil.nombrePilotoPilCatPunt }}</td>
+                <td class="rojo">{{ pil.puntosActPilCantPunt }}</td>
+              </ng-container>
+              <ng-template #noEsPuntaje>
+                <ng-container
+                  *ngIf="pil.idCategoriaPilCatPunt == 'Total'; else noEsTotal"
+                >
+                  <td class="rojo">&nbsp; &nbsp; &nbsp;{{ pil.posAntPCP }}</td>
+                  <td class="rojo">
+                    &nbsp; &nbsp;{{ pil.puntosAntPilCantPunt }}
+                  </td>
+                </ng-container>
+              </ng-template>
+              <ng-template #noEsTotal>
+                <ng-container
+                  *ngIf="pil.puntosActPilCantPunt !== 0; else noEsZero"
+                >
+                  <div class="rojo">
+                    <td>{{ pil.puntosActPilCantPunt }}</td>
+                  </div>
+                </ng-container>
+
+                <ng-template #noEsZero>
+                  <td>{{ pil.puntosActPilCantPunt }}</td>
+                </ng-template>
+              </ng-template>
+            </ng-container>
+
+          </table>
+        </section>
+
+  </div>
+</body>
+
+<footer>
+  <div class="div10"*ngIf="numero > 180" >
+    <pagination-controls
+      class="my-pagination"
+      previousLabel="ANTERIORES"
+      nextLabel="PRÓXIMOS"
+    ></pagination-controls>
+  </div>
+</footer>
