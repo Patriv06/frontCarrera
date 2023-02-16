@@ -17,7 +17,7 @@ export class RankingXTopComponent implements OnInit {
 
   categ: Categorias[] = [];
   pilotoCatPun!: PilCatPunt[];
-
+  pilotoCatPun2: PilCatPunt[]=[]
   Opciones= [
     { num: 5, name: "TOP 5" },
     { num: 10, name: "TOP 10" },
@@ -55,12 +55,18 @@ export class RankingXTopComponent implements OnInit {
     this.pilCPServicio.obtenerPCPXPosact()
    );
    this.pilotoCatPun = dato
-   console.log ("pilcatpunt: ", this.pilotoCatPun)
+   console.log ("pilcatpunt: ", this.pilotoCatPun.length, this.pilotoCatPun)
 
   }
   changeCentra(ss: number){
     console.log(ss)
     this.numero = ss * 18
+    this.pilotoCatPun2 = []
+    for (let i=0;i< this.numero;i++){
+        this.pilotoCatPun2[i]=this.pilotoCatPun[i]
+
+       console.log("2:", this.pilotoCatPun[i], this.pilotoCatPun2[i])
+     }
 
   }
   mostrarNoticias(){

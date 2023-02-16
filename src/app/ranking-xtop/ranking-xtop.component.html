@@ -61,7 +61,7 @@
 
             <ng-container
               *ngFor="
-                let pil of pilotoCatPun
+                let pil of pilotoCatPun2
                   | paginate : { itemsPerPage:180, currentPage: pages }
               "
             >
@@ -105,13 +105,16 @@
 
 
         <footer>
-  <div class="div10"*ngIf="numero > 180" >
-    <pagination-controls
-      class="my-pagination"
-      previousLabel="ANTERIORES"
-      nextLabel="PRÓXIMOS"
-    ></pagination-controls>
-  </div>
-</footer>
-  </div>
-</body>
+          <div class="pagination-previous">
+            <pagination-controls
+              class="my-pagination"
+              (pageChange)="pages = $event"
+              previousLabel="ANTERIORES"
+              nextLabel="PRÓXIMOS"
+
+
+            ></pagination-controls>
+          </div>
+        </footer>
+         </div>
+        </body>
