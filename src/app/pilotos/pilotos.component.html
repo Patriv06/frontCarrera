@@ -1,5 +1,5 @@
 <div class="div1">
-    <div class="div2">
+   <div class="div2">
       <app-menu></app-menu>
       <div *ngIf="mostrar == true">
         <app-noticias></app-noticias>
@@ -18,10 +18,13 @@
         <h1 class="vista">PILOTOS</h1>
       </div>
 
-      <div class="navegadorPilotos">
+      <div class="main">
+        <div class="navegadorPilotos">
 
+          <button class="pilotoAnterior" (click)="anterior()"><</button>
+          <button class="pilotoSiguiente" (click)="siguiente()">></button>
 
-      </div>
+        </div>
       <div class="div4">
 
 
@@ -48,7 +51,7 @@
           </div>
 
           <div class="cardsGrid">
-            <div class="card" *ngFor="let dat of pcp">
+            <div class="card"  *ngFor="let dat of pcp">
 
                 <ng-container
                 *ngIf="dat.idCategoriaPilCatPunt !== 'Puntaje' && dat.idCategoriaPilCatPunt !== 'Total';else  noEsPuntaje">
@@ -124,12 +127,13 @@
                     </div>
                   </ng-template>
                   </div>
-                  <!--<pagination-controls (pageChange)="page = $event"  previousLabel="<" nextLabel=">"></pagination-controls> -->
-                </div>
-              </div>
+
+            </div>
+           </div>
 
 
-        <!-- </ng-container> -->
+
+
 
 
 

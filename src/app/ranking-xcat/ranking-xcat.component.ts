@@ -16,8 +16,10 @@ export class RankingXCatComponent implements OnInit {
   seleccionado:Categorias=new Categorias()
   pcp: PilCatPunt[] = [];
   pages: number = 1;
+  count:number=0
   id:number=1
   mostrar=false
+
   constructor( private pilCPServicio: PilCatPuntService,
     private categoriaServicio: CategoriasService) { }
 

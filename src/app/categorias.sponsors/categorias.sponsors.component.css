@@ -20,6 +20,7 @@
   background-image: url(../../assets/Categorías_Carreras.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  background: transparent;
   z-index: 0;
 }
 

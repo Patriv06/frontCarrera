@@ -1,12 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-
 import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+
 import { Pilotos } from './pilotos';
 import { PilotosService } from './pilotos.service';
 import { PilCatPunt } from './pilCatPunt/pilCatPunt';
-import { NgForm } from '@angular/forms';
-import { debounceTime } from 'rxjs/operators';
-import { Subject, firstValueFrom } from 'rxjs';
+
+import { firstValueFrom } from 'rxjs';
 import { PilCatPuntService } from '../services/pil-cat-punt.service';
 
 
@@ -18,19 +17,12 @@ import { PilCatPuntService } from '../services/pil-cat-punt.service';
 
 })
 export class PilotosComponent implements OnInit {
-  Subject: any;
 
 
-  // @Input() nombre: string ='';
-  // @Output() onEnter   : EventEmitter<string> = new EventEmitter();
-
-  searchColumn(value: string): void {
-    console.log('value', value);
-    this.traerPilCatPunt(value);
-  }
-
-  // public page!: number;
   pcp: PilCatPunt[] = [];
+  pcp1: PilCatPunt[] = [];
+  ind=0;
+  nombreBusqueda=" "
   piloto: Pilotos[] = [];
   pilu = {
     idPiloto:0,
@@ -56,33 +48,26 @@ export class PilotosComponent implements OnInit {
      nombre = " "
      apellido = " "
 
-  constructor(private pilCPServicio: PilCatPuntService,private pilotoService:PilotosService) {}
+  constructor(private pilCPServicio: PilCatPuntService,private pilotoService:PilotosService, public router:Router) {}
 
   ngOnInit(): void {
-    /* this.Subject.pipe(debounceTime(500))
-    .subscribe((search: any) => {
-      this.searchColumn(search);
-  }); */
-    this.traerPilotos();
-  }
 
+    this.traerPilotos();
+    this.traerPCPXPos();
+  }
+  traerPCPXPos(){
+    this.pilCPServicio.obtenerPCPXPosact().subscribe((dato:PilCatPunt[])=>
+    {this.nombre=dato[0].nombrePilotoPilCatPunt;
+      this.pcp1=dato;
+      console.log("pcp1:",this.pcp1)
+      this.changeCentra(this.nombre)})
+  }
   public traerPilotos(){
     this.pilotoService.obtenerPilotos().subscribe(dato =>{
       this.piloto = dato;
-      let primerPiloto = this.piloto[0];
-      // this.traerPilCatPunt(primerPiloto.nombrePiloto);
     });
   }
 
-  public traerPilCatPunt(nombre: string){
-
-    this.pilotoService.obtenerPilCatPuntxPil(nombre).subscribe(
-      (dato: PilCatPunt[]) => {this.puntos = dato;
-      console.log('this.puntos', this.puntos);
-      this.punto = this.puntos[0];
-      }
-    )
-  }
   async changeCentra(ss: string){
     console.log(ss)
     await this.traePCPXPilo(ss)
@@ -90,7 +75,7 @@ export class PilotosComponent implements OnInit {
     const splitString = ss.split(",");
     this.nombre = splitString[0]
     this.apellido = splitString[1]
-
+    this.nombreBusqueda=ss
   }
 public async traePCPXPilo(pilot: string){
   console.log("pilot: ", pilot)
@@ -112,33 +97,29 @@ public async traePCPXPilo(pilot: string){
     console.log('esto es cerrar desde noticias', this.mostrar);
   }
 
-  // elegir(f: NgForm){
-  //   console.log('este es el f.value', f.value.miSelect.nombrePiloto );
-    // let datoNombre = {};
-    // let datoPuntajeAnterior = {};
-    // let datoPuntajeActual = {};
-    // datoNombre = this.pilu;
-    // datoPuntajeAnterior = this.pilu.puntajeAntPiloto;
-    // datoPuntajeActual = this.pilu.puntajeActPiloto;
-    // console.log('puntos actuales', datoPuntajeActual);
-    // console.log('puntaje anterior', datoPuntajeAnterior);
-    // this.ver = true;
-    // this.verSelect = false;
-  // }
+  anterior(){
+    this.muestra = false
+     let index = this.pcp1.findIndex(x => x.nombrePilotoPilCatPunt === this.nombreBusqueda && x.idCategoriaPilCatPunt === "Total");
+    console.log ("index nterior:", index)
+    if(index>0){
+      index=index-18
+     this.nombre= this.pcp1[index].nombrePilotoPilCatPunt
+     console.log("estoy en anterior", this.nombre, index)
+     this.changeCentra(this.nombre) }
+    }
 
-  // reload(){
-  //   window.location.reload();
-  // }
 
-  // pilotoPrevio(): void{
-  //   this.pilotoService.obtenerPilotos().subscribe(dato => {
-  //     let datoPiloto = dato.filter(item => item.nombrePiloto == this.pilu.nombrePiloto);
-  //     // let getPiloto = datoPiloto.find(item => item.idPiloto == this.pilu.idPiloto);
-  //     let index = datoPiloto.findIndex(item => item == this.pilu);
-  //     let indexPrevio: number = index != 0 ? index -1 : datoPiloto.length - 1;
-  //     // let idPrevio: number = datoPiloto[indexPrevio].idPiloto;
-  //     // this.pilu.idPiloto = idPrevio;
-  //     console.log(`este es el index = ${index}`, index);
-  //     });
-  // }
+  siguiente(){
+   this.muestra = false
+    let index = this.pcp1.findIndex(x => x.nombrePilotoPilCatPunt === this.nombreBusqueda && x.idCategoriaPilCatPunt === "Total");
+    console.log ("index siguiente:", index)
+
+   if(this.ind<this.pcp1.length-17){
+      index=index+1
+     this.nombre= this.pcp1[index].nombrePilotoPilCatPunt
+      console.log("estoy en siguiente", this.nombre, index)
+     this.changeCentra(this.nombre)
+   }
+  }
+
 }

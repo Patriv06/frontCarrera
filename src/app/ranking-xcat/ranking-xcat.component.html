@@ -1,81 +1,106 @@
 <body>
   <div class="principal-container">
+    <app-menu></app-menu>
+    <div *ngIf="mostrar == true">
+      <app-noticias></app-noticias>
+      <div class="equis">
+        <button type="button" (click)="cerrar()">X</button>
+      </div>
+    </div>
+
+    <div class="noticia">
+      <div class="semicircle">
+        <img
+          id="icono"
+          (click)="mostrarNoticias()"
+          src="../../assets/Exports/Iconos_Web_Carreras_Comentarios.png"
+          alt="Icono de comentarios"
+        />
+      </div>
+    </div>
+
+    <p class="home">Ranking por Categoria</p>
+    <div class="navegador">
+      <a routerLink="/ranking1">
+        <img
+          class="atras"
+          src="../../assets/Exports/Iconos_Web_Carreras_Flecha_1.png"
+        />
+      </a>
+    </div>
 
 
-          <app-menu></app-menu>
-          <div *ngIf="mostrar == true">
-          <app-noticias></app-noticias>
-          <div class="equis">
 
-         <button type="button" (click)="cerrar()">X</button>
-          </div>
-        </div>
-
-        <div class="noticia">
-          <div class="semicircle">
-            <img id="icono" (click)="mostrarNoticias()" src="../../assets/Exports/Iconos_Web_Carreras_Comentarios.png" alt="Icono de comentarios">
-          </div>
-        </div>
-
-          <p class="home">Ranking por Categoria</p>
-          <div class="navegador">
-            <a routerLink="/ranking1">
-              <img class="atras" src="../../assets/Exports/Iconos_Web_Carreras_Flecha_1.png">
-            </a>
-          </div>
-            <section class="table">
-              <table>
-          <td>
-  <label>Categoria: </label>
-</td>
-
-
-
-<td>
-  <select class="browser-default" name="miselect" [(ngModel)]="seleccionado" (change)='changeCentra(seleccionado.idCategoria)'>
-    <label>Select the role</label>
-    <option [ngValue]="cate" *ngFor="let cate of categ">{{cate.idCategoria}}</option>
-  </select>
-
-</td>
-<tr></tr>
-<th>POSICIÓN&nbsp;ACTUAL</th>
-  <th>NOMBRE&nbsp;PILOTO</th>
-  <th>PUNTOS&nbsp;ACTUALES</th>
- <!--  <td>{{seleccionado.idCategoria}}&nbsp;&nbsp;</td> -->
-  <th>PUNTOS&nbsp;ANTERIORES </th>
-
-  <ng-container *ngFor="let pil of pcp | paginate: { itemsPerPage: 10, currentPage: pages }, index as id">
-
-      <tr></tr>
-  <ng-container *ngIf="pil.puntosActPilCantPunt !==0">
-
-      <td CLASS="rojo">{{ id+1 }}</td>
-      <td>{{ pil.nombrePilotoPilCatPunt }}</td>
-      <td class="rojo">{{ pil.puntosActPilCantPunt }}</td>
-
-
-        <td class="rojo">
-          &nbsp; &nbsp;{{ pil.puntosAntPilCantPunt }}
+    <section class="table">
+      <table>
+        <td>
+          <label>Categoria: </label>
         </td>
 
-   </ng-container>
-</ng-container>
+        <td>
+          <select
+            class="browser-default"
+            name="miselect"
+            [(ngModel)]="seleccionado"
+            (change)="changeCentra(seleccionado.idCategoria)"
+          >
+            <label>Select the role</label>
+            <option [ngValue]="cate" *ngFor="let cate of categ">
+              {{ cate.idCategoria }}
+            </option>
+          </select>
+        </td>
+        <tr></tr>
+        <th>POSICIÓN&nbsp;ACTUAL</th>
+        <th>NOMBRE&nbsp;PILOTO</th>
+        <th>PUNTOS&nbsp;ACTUALES</th>
+        <!--  <td>{{seleccionado.idCategoria}}&nbsp;&nbsp;</td> -->
+        <th>PUNTOS&nbsp;ANTERIORES</th>
 
-   </table>
-   </section>
+        <ng-container
+          *ngFor="
+            let pil of pcp
+              | paginate : { itemsPerPage: 10, currentPage: pages
+              };
+            index as id
+          "
+        >
+          <tr></tr>
+          <ng-container *ngIf="pil.puntosActPilCantPunt !== 0">
+            <ng-container>
+            <!-- *ngIf="pages == 1; else noEs1" -->
+
+            <td CLASS="rojo">{{ pages *10 - 9 + id }}</td>
+
+            <td>{{ pil.nombrePilotoPilCatPunt }}</td>
+            <td class="rojo">{{ pil.puntosActPilCantPunt }}</td>
+
+            <td class="rojo">&nbsp; &nbsp;{{ pil.puntosAntPilCantPunt }}</td>
+            </ng-container>
+            <ng-template #noEs1>
+              <td CLASS="rojo">{{ pages *10 - 10 + id }}</td>
+
+              <td>{{ pil.nombrePilotoPilCatPunt }}</td>
+              <td class="rojo">{{ pil.puntosActPilCantPunt }}</td>
+
+              <td class="rojo">&nbsp; &nbsp;{{ pil.puntosAntPilCantPunt }}</td>
+            </ng-template>
+          </ng-container>
+        </ng-container>
+      </table>
+    </section>
+
+    <footer>
+  <div class="pagination-previous">
+    <pagination-controls
+      class="my-pagination"
+      (pageChange)="pages = $event"
+      previousLabel="ANTERIORES"
+      nextLabel="PRÓXIMOS"
 
 
-   </div>
-
-</body>
-<footer>
-<div class="div10">
-<pagination-controls  class="my-pagination" (pageChange)="pages = $event" previousLabel="ANTERIORES"
-nextLabel="PRÓXIMOS"  ></pagination-controls>
-</div>
+    ></pagination-controls>
+  </div>
 </footer>
-
-
-
-
+ </div>
+</body>

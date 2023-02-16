@@ -79,13 +79,15 @@
 </table>
 
 </section>
+</div>
+</body>
 <footer>
 <div class="div10" >
   <pagination-controls  class="my-pagination" (pageChange)="pages = $event" screenReaderPageLabel="page" previousLabel="ANTERIORES"
-  nextLabel="PRÓXIMOS"  ></pagination-controls>
+  nextLabel="PRÓXIMOS"  >autoHide="true"</pagination-controls>
 </div>
 </footer>
-</div>
+
 
 
 <!-- <pagination-controls  id="some_id">
@@ -100,4 +102,4 @@ screenReaderPaginationLabel="Pagination"
 screenReaderPageLabel="page"
 screenReaderCurrentLabel="You're on page">
 </pagination-controls> -->
-</body>
+
