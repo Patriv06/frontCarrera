@@ -12,6 +12,7 @@ import { PilCatPunt } from './pilCatPunt/pilCatPunt';
 export class PilotosService {
   private baseURL="https://complete-audry-privas06.koyeb.app/ver/pilotos";
   private buscaPilURL="https://complete-audry-privas06.koyeb.app/ver/pilCatPuntXPiloto/";
+  private buscaPilXnom ="https://complete-audry-privas06.koyeb.app/ver/pilotosXnombre"
 
   private piloto: Pilotos[] = []
   private puntos: PilCatPunt[] = []
@@ -29,4 +30,8 @@ export class PilotosService {
   obtenerPilCatPunt():Observable<PilCatPunt[]>{
     return this.httpClient.get<PilCatPunt[]>(`${this.baseURL}`);
   }
+  obtenerPilotosXnombre(nom:String):Observable<Pilotos[]>{
+    return this.httpClient.get<Pilotos[]>(`${this.buscaPilXnom}`+"/" + nom);
+  }
+
 }

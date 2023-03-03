@@ -21,10 +21,11 @@ export class PilotosComponent implements OnInit {
 
   pcp: PilCatPunt[] = [];
   pcp1: PilCatPunt[] = [];
+  pilotito:Pilotos[]=[];
   ind=0;
   nombreBusqueda=" "
   piloto: Pilotos[] = [];
-  pilu = {
+  pilu= {
     idPiloto:0,
     nombrePiloto:'',
     apellidoPiloto:'',
@@ -32,6 +33,15 @@ export class PilotosComponent implements OnInit {
     puntajeAntPiloto:0,
     puntajeActPiloto:0
  }
+ pilParaUrl:Pilotos[]=[{
+  idPiloto:1,
+  nombrePiloto:" ",
+  apellidoPiloto:" ",
+  urlImgPiloto:" ",
+  puntajeAntPiloto:0,
+  puntajeActPiloto:0}]
+
+
   puntos: PilCatPunt[] = [];
   punto = {
     idPilCatPunt:0,
@@ -47,7 +57,7 @@ export class PilotosComponent implements OnInit {
      muestra = false
      nombre = " "
      apellido = " "
-
+     imagen = " "
   constructor(private pilCPServicio: PilCatPuntService,private pilotoService:PilotosService, public router:Router) {}
 
   ngOnInit(): void {
@@ -70,12 +80,14 @@ export class PilotosComponent implements OnInit {
 
   async changeCentra(ss: string){
     console.log(ss)
+   await this.traerPilXNom(ss)
     await this.traePCPXPilo(ss)
     this.muestra = true
     const splitString = ss.split(",");
     this.nombre = splitString[0]
     this.apellido = splitString[1]
     this.nombreBusqueda=ss
+    console.log("nombre:", this.nombre, "Apellido:", this.apellido)
   }
 public async traePCPXPilo(pilot: string){
   console.log("pilot: ", pilot)
@@ -85,7 +97,13 @@ public async traePCPXPilo(pilot: string){
    console.log(this.pcp)
   }
 
+  public async traerPilXNom(nom: string){
+   const dato:Pilotos[]= await firstValueFrom(this.pilotoService.obtenerPilotosXnombre(nom));
+    this.pilParaUrl= dato
+    this.imagen=this.pilParaUrl[0].urlImgPiloto
 
+    console.log("Piloto URL: ", this.pilParaUrl[0].urlImgPiloto, "URL: ")
+  }
 
   mostrarNoticias(){
     this.mostrar = true;
@@ -123,3 +141,4 @@ public async traePCPXPilo(pilot: string){
   }
 
 }
+
