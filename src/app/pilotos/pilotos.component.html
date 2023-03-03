@@ -42,8 +42,10 @@
     </div>
 
 
+
    <div *ngIf="muestra == true">
-    <img class="foto" [src]="imagen">
+    <img class="foto" [src]="imagen" onError="this.src='../../assets/nada.jpg'">
+
      <div class="row">
        <div class="puntosPiloto">
          <div class="mostrarDatos">
